@@ -1,0 +1,38 @@
+# The below name has to be same as the name of the class in main.py
+<FirstScreen>:
+    GridLayout:
+        # if you need to have space between screen and widget you use padding
+        padding: 5
+        # The spacing configuration parameter allows you to define space between widgets
+        spacing:5
+        # Define how many columns are required in the Grid.
+        cols: 1
+        # Next declare what widget you have
+        Image:
+        # Next we need the source of the image.
+            # You can define the source of the image. Static image will be displayed.
+            # source: 'files/Thimmi.jpg'
+            # However, you can also define the image in your python code the way you have done.
+            # In such cases, you will only have to define an id for the image.
+            id: img
+            # The above value for the key id should be same as the one used in the Python code.
+
+            # That expects the number that defines how much space the widget take
+            # relative to the entire height of the screen.
+            size_hint_y: 0.9
+        TextInput:
+            id: user_query
+            size_hint_y: 0.05
+        Button:
+            text: 'Search Image'
+            size_hint_y: 0.05
+            # You need to define what functionality the button should perform when its pressed.
+            on_press: root.search_image()
+            # Why do we call it root? root is a special variable kivy makes available for us.
+            # the variable holds the current class. Here it points of instance of FirstScreen class
+
+# Similarly, add the root Widget.
+<RootWidget>
+    FirstScreen:
+        id: first_screen
+        name: 'first_screen'
